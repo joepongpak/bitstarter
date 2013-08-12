@@ -98,6 +98,7 @@ if(require.main == module) {
         .option('-u, --url <url_link>', 'link to url', clone(assertUrlExists), URL_DEFAULT)
         .parse(process.argv);
 if(program.url!=""){
+console.log("a");
 rest.get(program.url).on('complete', function(result) {
   if (result instanceof Error) {
     console.log("Can not fetch");
@@ -105,13 +106,14 @@ rest.get(program.url).on('complete', function(result) {
   }
  var checkJson = checkHtmlUrl(result, program.checks);
  var outJson = JSON.stringify(checkJson, null, 4);
- console.log(outJson);
+ console.log(outJson+"url");
 });
+
 
 }else{
  var checkJson = checkHtmlFile(program.file, program.checks);
  var outJson = JSON.stringify(checkJson, null, 4);
- console.log(outJson);
+ console.log(outJson+"file");
 
 }
    } else {

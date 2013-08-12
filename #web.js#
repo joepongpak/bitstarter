@@ -4,7 +4,6 @@ var app = express();
 app.use(express.logger());
 var filename = "index.html";
 app.get('/', function(request, response) {
-app.use("/fonts", express.static(__dirname + '/fonts'));
 var data = fs.readFileSync(filename, "utf8");
   response.send(data);
 });
